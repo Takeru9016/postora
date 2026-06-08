@@ -1,6 +1,9 @@
 allowBuilds:
+  bufferutil: true
+  core-js: true
   msw: true
   sharp: true
+  utf-8-validate: true
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
