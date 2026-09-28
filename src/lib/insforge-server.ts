@@ -15,10 +15,10 @@
  * policies see the correct `sub` claim.
  */
 
-import 'server-only';
+import "server-only";
 
-import { auth } from '@clerk/nextjs/server';
-import { createClient, createAdminClient } from '@insforge/sdk';
+import { auth } from "@clerk/nextjs/server";
+import { createClient, createAdminClient } from "@insforge/sdk";
 
 const INSFORGE_BASE_URL = process.env.NEXT_PUBLIC_INSFORGE_URL!;
 const INSFORGE_ANON_KEY = process.env.NEXT_PUBLIC_INSFORGE_ANON_KEY!;
@@ -51,7 +51,7 @@ export async function createInsforgeServerClient() {
   // getToken() returns null when the user is not signed in.
   const { getToken, userId } = await auth();
   const token = await getToken(
-    CLERK_JWT_TEMPLATE ? { template: CLERK_JWT_TEMPLATE } : undefined
+    CLERK_JWT_TEMPLATE ? { template: CLERK_JWT_TEMPLATE } : undefined,
   );
 
   if (token) {

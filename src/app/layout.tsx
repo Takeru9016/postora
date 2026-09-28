@@ -7,7 +7,7 @@ import "./globals.css";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-import { ThemeProvider } from "@/providers";
+import { QueryProvider, ThemeProvider } from "@/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,14 +37,16 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ClerkProvider appearance={{ theme: shadcn }}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <TooltipProvider>{children}</TooltipProvider>
-          </ThemeProvider>
+          <QueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <TooltipProvider>{children}</TooltipProvider>
+            </ThemeProvider>
+          </QueryProvider>
         </ClerkProvider>
       </body>
     </html>

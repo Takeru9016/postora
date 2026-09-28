@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
+import Link from "next/link";
 import { useAuth, UserButton } from "@clerk/nextjs";
 
 import { Logo } from "@/components";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 export default function Home() {
-
-  const { isSignedIn } = useAuth()
+  const { isSignedIn } = useAuth();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -21,30 +20,31 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {!isSignedIn ? (
               <>
-                <Button asChild variant={"outline"} className="rounded-full px-5">
-                  <Link href={"/sign-in"}>
-                    Sign in
-                  </Link>
+                <Button
+                  asChild
+                  variant={"outline"}
+                  className="rounded-full px-5"
+                >
+                  <Link href={"/sign-in"}>Sign in</Link>
                 </Button>
-                <Button asChild variant={"default"} className="rounded-full px-5">
-                  <Link href={"/sign-up"}>
-                    Sign up
-                  </Link>
+                <Button
+                  asChild
+                  variant={"default"}
+                  className="rounded-full px-5"
+                >
+                  <Link href={"/sign-up"}>Sign up</Link>
                 </Button>
               </>
             ) : (
               <>
                 <Button asChild className="rounded-full px-5">
-                  <Link href={"/dashboard"}>
-                    Open Dashboard
-                  </Link>
+                  <Link href={"/dashboard"}>Open Dashboard</Link>
                 </Button>
                 <UserButton />
               </>
             )}
           </div>
         </div>
-
       </header>
     </div>
   );
